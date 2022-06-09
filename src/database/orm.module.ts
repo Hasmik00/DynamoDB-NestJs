@@ -4,17 +4,15 @@ import { DynamooseModule } from 'nestjs-dynamoose';
 import { DatabaseModule } from './database.module';
 import { DatabaseConfig } from './database.config';
 
-// todo: need to think about cold start
 @Module({
   imports: [
-    DynamooseModule,
     DynamooseModule.forRootAsync({
       useFactory: (config: DatabaseConfig) => ({
         local: config.local,
         aws: {
-          accessKeyId: config.getAwsDetails().Key,
-          secretAccessKey: config.getAwsDetails().Secret,
-          region: config.getAwsDetails().Region,
+          accessKeyId: config.aws.Key,
+          secretAccessKey: config.aws.Secret,
+          region: config.aws.Region,
         },
         model: {
           create: true,

@@ -7,7 +7,7 @@ export const ConfigSchema = {
     Name: Joi.string().required(),
     Description: Joi.string().required(),
     Version: Joi.string().required(),
-    Path: Joi.string().required()
+    Path: Joi.string().required(),
   }),
   globalPrefix: Joi.string().required(),
   firstConnectAuthToken: Joi.string().required(),
@@ -15,6 +15,6 @@ export const ConfigSchema = {
     Key: Joi.string().required(),
     Secret: Joi.string().required(),
     Endpoint: Joi.string().required(),
-    Region: Joi.string().required()
-  })
+    Region: Joi.string().required(),
+  }),
 } as any;

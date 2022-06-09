@@ -1,20 +1,21 @@
-import { Module, OnModuleInit } from "@nestjs/common";
+import { Module, OnModuleInit } from '@nestjs/common';
 
-import { DatabaseConfig } from "./database.config";
+import { DatabaseConfig } from './database.config';
 
-Module({
+@Module({
   imports: [],
   providers: [DatabaseConfig],
-  exports: [DatabaseConfig]
-});
-export class DatabaseModule {
-  // constructor(private config: DatabaseConfig) {
-  // }
+  exports: [DatabaseConfig],
+})
+export class DatabaseModule implements OnModuleInit {
+  constructor(private config: DatabaseConfig) {}
 
-  // onModuleInit(): void {
-  //   this.config.print();
-  //   if (!this.config.isValid()) {
-  //     process.exit(1);
-  //   }
-  // }
+  onModuleInit(): void {
+
+    console.log('---this ', this.config)
+    this.config.print();
+    if (!this.config.isValid()) {
+      process.exit(1);
+    }
+  }
 }

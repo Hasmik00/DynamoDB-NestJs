@@ -1,10 +1,11 @@
-import { Injectable, Logger } from "@nestjs/common";
-import { IServiceConfig } from "./config.contract";
-import { IAWSDetails } from "../../../types";
-import Joi from "joi";
+import { Injectable, Logger } from '@nestjs/common';
+import * as Joi from 'joi';
+
+import { IServiceConfig } from './config.contract';
+import { IAWSDetails } from '../../../types';
 import { Environment } from "../../../types/environment.type";
 import { ISwagger } from "../../../types/swagger.types";
-import { ConfigSchema } from "./configSchema";
+import { ConfigSchema } from './config.schema';
 
 @Injectable()
 export class ServiceConfig implements IServiceConfig {
@@ -14,18 +15,18 @@ export class ServiceConfig implements IServiceConfig {
   public firstConnectUrl: string = process.env.APP_FIRST_CONNECT_URL;
   public port: number = parseInt(process.env.APP_PORT, 10) || 3000;
   public swagger: ISwagger = {
-    Name: process.env.APP_SWAGGER_NAME || "Swagger",
-    Description: process.env.APP_SWAGGER_DESCRIPTION || "service",
-    Version: process.env.APP_SWAGGER_VERSIO || "v1",
-    Path: (process.env.APP_SWAGGER_PATH = "/api")
+    Name: process.env.APP_SWAGGER_NAME || 'Swagger',
+    Description: process.env.APP_SWAGGER_DESCRIPTION || 'service',
+    Version: process.env.APP_SWAGGER_VERSION || 'v1',
+    Path: (process.env.APP_SWAGGER_PATH = '/api'),
   };
-  public globalPrefix: string = process.env.APP_GLOBAL_PREFIX || "/api";
+  public globalPrefix: string = process.env.APP_GLOBAL_PREFIX || '/api';
   private firstConnectAuthToken: string = process.env.APP_FIRST_AUTH_TOKEN;
   private aws: IAWSDetails = {
     Key: process.env.APP_AWS_KEY,
     Secret: process.env.APP_AWS_SECRET,
     Endpoint: process.env.APP_AWS_ENDPOINT,
-    Region: process.env.APP_AWS_REGION
+    Region: process.env.APP_AWS_REGION,
   };
 
   print() {
@@ -43,7 +44,7 @@ export class ServiceConfig implements IServiceConfig {
     if (error) {
       this.logger.error(`Joi validation error: ${JSON.stringify(error.details)}`);
     } else {
-      this.logger.debug("Joi validation success");
+      this.logger.debug('Joi validation success');
     }
     return !error;
   }
