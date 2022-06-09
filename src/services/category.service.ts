@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 
-import { CategoryRepository } from "../repositories/category.repository";
+import { CategoryRepository } from "../repositories";
 import { CreateCategoryDto } from "../dtos/create-category.dto";
 import { Category } from "../types/category.interface";
 

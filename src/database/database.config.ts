@@ -1,10 +1,9 @@
 import { Injectable, Logger } from "@nestjs/common";
 import * as Joi from "joi";
+
 import { IDatabaseConfig } from "./database.contracts";
 import { DatabaseSchema } from "./database-config.shema";
 import { IAWSDetails } from "../types";
-
-
 
 @Injectable()
 export class DatabaseConfig implements IDatabaseConfig {
@@ -35,5 +34,4 @@ export class DatabaseConfig implements IDatabaseConfig {
     }
     return !error;
   }
-
 }

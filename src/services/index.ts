@@ -1,4 +1,4 @@
-export * from './category.service';
+export * from "./category.service";
 
 import { CategoryService } from "./category.service";
 

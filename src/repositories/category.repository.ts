@@ -16,5 +16,4 @@ export class CategoryRepository {
   async create(data: CreateCategoryDto): Promise<Category> {
     return this.categoryModel.create({ category_id: uuid, ...data });
   }
-
 }

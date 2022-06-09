@@ -1,1 +1,1 @@
-export * from './aws.types';
+export * from "./aws.types";

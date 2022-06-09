@@ -1,4 +1,4 @@
-export * from './category.repository';
+export * from "./category.repository";
 
 import { CategoryRepository } from "./category.repository";
 

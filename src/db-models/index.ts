@@ -1,4 +1,4 @@
-export * from './category.model';
+export * from "./category.model";
 
 import { CategoryModel } from "./category.model";
 

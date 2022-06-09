@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { DynamooseModule } from 'nestjs-dynamoose';
+import { Module } from "@nestjs/common";
+import { DynamooseModule } from "nestjs-dynamoose";
 
-import { DatabaseModule } from './database.module';
-import { DatabaseConfig } from './database.config';
+import { DatabaseModule } from "./database.module";
+import { DatabaseConfig } from "./database.config";
 
 @Module({
   imports: [
@@ -12,16 +12,17 @@ import { DatabaseConfig } from './database.config';
         aws: {
           accessKeyId: config.aws.Key,
           secretAccessKey: config.aws.Secret,
-          region: config.aws.Region,
+          region: config.aws.Region
         },
         model: {
           create: true,
-          prefix: config.prefix,
-        },
+          prefix: config.prefix
+        }
       }),
       imports: [DatabaseModule],
-      inject: [DatabaseConfig],
-    }),
-  ],
+      inject: [DatabaseConfig]
+    })
+  ]
 })
-export class OrmModule {}
+export class OrmModule {
+}

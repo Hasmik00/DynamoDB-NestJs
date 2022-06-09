@@ -8,5 +8,6 @@ export interface IServiceConfig {
     Path: string;
   };
   globalPrefix: string;
+
   print();
 }

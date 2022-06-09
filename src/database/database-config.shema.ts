@@ -8,5 +8,5 @@ export const DatabaseSchema = {
     Endpoint: Joi.string().required(),
     Region: Joi.string().required()
   }),
-  local: Joi.bool().required(),
+  local: Joi.bool().required()
 } as any;
