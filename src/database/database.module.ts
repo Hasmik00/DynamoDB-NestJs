@@ -18,8 +18,4 @@ export class DatabaseModule implements OnModuleInit {
       process.exit(1);
     }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2f68a50d625d43b26ed1e2a3dff2b29b9aeae3ad
