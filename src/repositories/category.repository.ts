@@ -10,7 +10,8 @@ export class CategoryRepository {
   constructor(
     @InjectModel("Category")
     private categoryModel: Model<ICategory, CategoryKey>
-  ) {}
+  ) {
+  }
 
   async create(data: CreateCategoryDto): Promise<ICategory> {
     return this.categoryModel.create({ id: uuid, ...data });
@@ -25,5 +26,9 @@ export class CategoryRepository {
 
   async getAllCategories(): Promise<any> {
     return await this.categoryModel.scan().exec();
+  }
+
+  async deleteCategoryById(id: string): Promise<any> {
+    return await this.categoryModel.delete({ id });
   }
 }

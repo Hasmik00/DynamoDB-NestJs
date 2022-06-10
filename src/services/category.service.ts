@@ -36,4 +36,16 @@ export class CategoryService {
 
     return category;
   }
+
+  async deleteCategoryById(categoryId: string): Promise<ICategory> {
+    const [error, category] = await to(this.categoryRepository.deleteCategoryById(categoryId));
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    return category;
+  }
+
+
 }
