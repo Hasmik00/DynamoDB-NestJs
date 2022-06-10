@@ -1,8 +1,8 @@
 export interface CategoryKey {
-  category_id: string;
+  id: string;
 }
 
-export interface Category extends CategoryKey {
+export interface ICategory extends CategoryKey {
   title: string;
   description: string;
 }
